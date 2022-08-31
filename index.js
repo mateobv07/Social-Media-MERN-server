@@ -8,11 +8,12 @@ import postRoutes from './routes/posts.js'
 const app = express();
 
 //body parser setup
-app.use('/posts', postRoutes);
-
 app.use(bodyParser.json( {limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded( {limit: "30mb", extended: true }));
 app.use(cors())
+
+
+app.use('/posts', postRoutes);
 
 //MongoDB Cloud Atlas 
 const CONNECTION_URL = 'mongodb+srv://mateobv07:Thebahamas1@cluster0.fbxei2e.mongodb.net/?retryWrites=true&w=majority';
